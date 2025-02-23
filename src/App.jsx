@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Router, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 
 //componets
@@ -15,15 +15,24 @@ import Cart from './component/Cart'
 function App(){
   const[count, setCount] = useState(0)
   return(
-      <Routes>
-        <Route path='/' element={<HomePage/>} />
-        <Route path='/products' element={<ProductPage/>} />
-        <Route path='/products/:id' element={<ProductDetails/>} />
-        <Route path='/cart' element={<Cart/>} />
-        <Route path='/placeorder' element={<PlaceOrder/>} />
-        <Route path='/confirmation' element={<Confirmation/>} />
-        <Route path='*' element={<h1>404 Not Found</h1>} />
-      </Routes>
+    <>
+      <Header />
+      <nav>
+          <Link to={'/'}>Home</Link> | |  
+          <Link to={'/products'}>Products</Link> | |   
+          <Link to={'/cart'}>Cart</Link>
+        </nav>
+          <Routes>
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/products' element={<ProductPage/>} />
+            <Route path='/products/:id' element={<ProductDetails/>} />
+            <Route path='/cart' element={<Cart/>} />
+            <Route path='/placeorder' element={<PlaceOrder/>} />
+            <Route path='/confirmation' element={<Confirmation/>} />
+            <Route path='*' element={<h1>404 Not Found</h1>} />
+          </Routes>
+        <Footer />
+    </>
   )
 }
 
