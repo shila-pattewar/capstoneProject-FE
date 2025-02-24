@@ -20,7 +20,7 @@ import Confirmation from './pages/Confirmation'
 import PlaceOrder from './pages/PlaceOrder'
 
 function App(){
-  const[count, setCount] = useState(0)
+  const[products, setProducts] = useState(0)
   return(
     <>
       <nav>
