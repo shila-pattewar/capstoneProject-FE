@@ -18,25 +18,23 @@ export default function Products() {
         fetchProducts();
     }, []);
 
-    const handleAddToCart = (product) => {
-        // You can add product to context or localStorage here
-        console.log('Product added to cart:', product);
-
-        // Redirect to the cart page
-        navigate('/cart');
+    const handleProductDetails = (product) => {
+        console.log('product Details:', product);
+        navigate('/productDetails');
     };
 
     return (
         <div>
-            <h1>All Products</h1>
+            <h1>Cart</h1>
             <ul>
                 {products.length > 0 ? (
                     products.map((product, index) => (
                         <li key={index}>
                              <h3>{product.name}</h3>
                              <p>{product.image}</p>
-                            <p>${product.price}</p>
-                            <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+                             <p>${product.price}</p>
+                             
+                            <button onClick={() => handleProductDetails(product)}>Product Details</button>
                         </li>
                     ))
                 ) : (

@@ -4,24 +4,32 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Products() {
     const [products, setProducts] = useState([]); // State to store product data
+    const [cart, setCart] = useState([]); // State to store cart items
     const navigate = useNavigate(); // navigate hook
 
+    // Fetch products from the API
     useEffect(() => {
         async function fetchProducts() {
             try {
                 let res = await axios.get('http://localhost:3000/products');
                 setProducts(res.data); // Update state with the fetched products
             } catch (error) {
-                console.error('Error while fetching products:', error);
+                console.error('Fetching products Error:', error);
             }
         }
         fetchProducts();
     }, []);
 
-    // redirect to cart page
+    // Redirect to productDetails page
     const handleViewDetails = (product) => {
-        localStorage.setItem('cart', JSON.stringify([product])); 
-        navigate('/cart');
+        localStorage.setItem('productDetails', JSON.stringify([product])); 
+        navigate('/productDetails');
+    };
+
+    // Add product to cart and log product details in the console
+    const handleAddToCart = (product) => {
+        setCart((prevCart) => [...prevCart, product]); // Add product to cart state
+        console.log('Product added to cart:', product); // Log the product details to the console
     };
 
     return (
@@ -34,11 +42,28 @@ export default function Products() {
                             <h3>{product.name}</h3>
                             <p>{product.image}</p>
                             <p>${product.price}</p>
+
                             <button onClick={() => handleViewDetails(product)}>View Details</button>
+                            <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
                         </li>
                     ))
                 ) : (
                     <p>Loading products...</p>
+                )}
+            </ul>
+
+            {/* Optional: Display Cart */}
+            <h2>Your Cart</h2>
+            <ul>
+                {cart.length > 0 ? (
+                    cart.map((item, index) => (
+                        <li key={index}>
+                            <h4>{item.name}</h4>
+                            <p>${item.price}</p>
+                        </li>
+                    ))
+                ) : (
+                    <p>Your cart is empty.</p>
                 )}
             </ul>
         </div>

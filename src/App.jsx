@@ -18,6 +18,7 @@ import Products from './pages/Products'
 import Cart from './pages/Cart'
 import Confirmation from './pages/Confirmation'
 import PlaceOrder from './pages/PlaceOrder'
+import ProductDetails from './pages/productDetails'
 
 function App(){
   const[products, setProducts] = useState(0)
@@ -31,6 +32,7 @@ function App(){
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/products' element={<Products/>} />
+            <Route path="/productDetails" element={<ProductDetails />} />
             {/* <Route path='/products/:id' element={<ProductDetails/>} /> */}
             <Route path='/cart' element={<Cart/>} />
             <Route path='/placeorder' element={<PlaceOrder/>} />
