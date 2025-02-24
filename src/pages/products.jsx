@@ -26,6 +26,7 @@ export default function Products() {
                             <p>{product.image}</p>
                             <h3>{product.name}</h3>
                             <p>${product.price}</p>
+                            <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
                         </li>
                     ))
                 ) : (
