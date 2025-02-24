@@ -1,46 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 
-export default function Products() {
-    const [products, setProducts] = useState([]); // State to store product data
-    const navigate = useNavigate(); // Hook for navigation
+export default function Cart() {
+    const [cart, setCart] = useState([]);
 
+    // Fetch cart items from localStorage
     useEffect(() => {
-        async function fetchProducts() {
-            try {
-                let res = await axios.get('http://localhost:3000/products');
-                setProducts(res.data); // Update state with the fetched products
-            } catch (error) {
-                console.error('Error while fetching products:', error);
-            }
-        }
-        fetchProducts();
+        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        setCart(storedCart);
     }, []);
 
-    const handleProductDetails = (product) => {
-        console.log('product Details:', product);
-        navigate('/productDetails');
+    // Handle removing an item from the cart
+    const handleRemoveFromCart = (index) => {
+        const updatedCart = cart.filter((item, i) => i !== index); // Remove item from cart
+        setCart(updatedCart); // Update the state
+        localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update localStorage
     };
 
     return (
         <div>
-            <h1>Cart</h1>
-            <ul>
-                {products.length > 0 ? (
-                    products.map((product, index) => (
+            <h1>Your Cart</h1>
+            {cart.length > 0 ? (
+                <ul>
+                    {cart.map((item, index) => (
                         <li key={index}>
-                             <h3>{product.name}</h3>
-                             <p>{product.image}</p>
-                             <p>${product.price}</p>
-                             
-                            <button onClick={() => handleProductDetails(product)}>Product Details</button>
+                            <h4>{item.name}</h4>
+                            <p>${item.price}</p>
+                            <button onClick={() => handleRemoveFromCart(index)}>Remove</button>
                         </li>
-                    ))
-                ) : (
-                    <p>Loading products...</p>
-                )}
-            </ul>
+                    ))}
+                </ul>
+            ) : (
+                <p>Your cart is empty.</p>
+            )}
         </div>
     );
 }
