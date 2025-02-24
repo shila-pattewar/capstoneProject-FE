@@ -6,7 +6,7 @@ export default function ProductDetails() {
     const [cart, setCart] = useState([]); // State to hold the cart
     const navigate = useNavigate(); // Navigate hook to go back to the product list page
 
-    // Fetch product details from localStorage
+    // Fetching product details from localStorage
     useEffect(() => {
         const storedProduct = JSON.parse(localStorage.getItem('productDetails'))[0]; // Get the first product from localStorage
         setProduct(storedProduct); // Set the product to state
@@ -37,9 +37,9 @@ export default function ProductDetails() {
         <div>
             <h1>Product Details</h1>
             <h2>{product.name}</h2>
-            <img src={product.image} alt={product.name} style={{ width: '200px', height: '200px' }} />
-            <p><strong>Price:</strong> ${product.price}</p>
-            <h3>Ingredients</h3>
+            <img src={product.image}style={{ width: '200px', height: '200px' }} />
+            <p>Price:${product.price}</p>
+            <h3>Ingredients{product.Ingredients}</h3>
             <ul>
                 {product.ingredients ? (
                     product.ingredients.map((ingredient, index) => (
