@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Products() {
     const [products, setProducts] = useState([]); // State to store product data
+    const navigate = useNavigate(); // navigate hook
 
     useEffect(() => {
         async function fetchProducts() {
@@ -16,6 +18,12 @@ export default function Products() {
         fetchProducts();
     }, []);
 
+    // redirect to cart page
+    const handleViewDetails = (product) => {
+        localStorage.setItem('cart', JSON.stringify([product])); 
+        navigate('/cart');
+    };
+
     return (
         <div>
             <h1>All Products</h1>
@@ -23,10 +31,10 @@ export default function Products() {
                 {products.length > 0 ? (
                     products.map((product, index) => (
                         <li key={index}>
-                            <p>{product.image}</p>
                             <h3>{product.name}</h3>
+                            <p>{product.image}</p>
                             <p>${product.price}</p>
-                            <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+                            <button onClick={() => handleViewDetails(product)}>View Details</button>
                         </li>
                     ))
                 ) : (
