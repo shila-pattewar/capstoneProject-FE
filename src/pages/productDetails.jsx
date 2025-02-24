@@ -37,7 +37,7 @@ export default function ProductDetails() {
         <div>
             <h1>Product Details</h1>
             <h2>{product.name}</h2>
-            <img src={product.image}style={{ width: '200px', height: '200px' }} />
+            <img src={product.image.photoURI}style={{ width: '200px', height: '200px' }} />
             <p>Price:${product.price}</p>
             <h3>Ingredients{product.Ingredients}</h3>
             <ul>
