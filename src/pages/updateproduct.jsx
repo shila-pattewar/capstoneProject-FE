@@ -90,6 +90,25 @@ export default function UpdateProducts() {
     setProductToEdit({ ...product, id: product._id || product.id }); // Ensure `id` is correctly set
   };
 
+  // DELETE request to delete a product
+  const handleDeleteProduct = async (productId) => {
+    try {
+      // Make the DELETE request to remove the product by ID
+      const response = await axios.delete(
+        `http://localhost:3000/products/${productId}`
+      );
+      console.log("Deleted product response:", response.data);
+
+      // Remove the deleted product from the products state
+      const updatedProducts = products.filter(
+        (product) => product.id !== productId
+      );
+      setProducts(updatedProducts);
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
+
   if (loading) {
     return <p>Loading products...</p>;
   }
@@ -114,6 +133,10 @@ export default function UpdateProducts() {
                 <p>Price: ${product.price}</p>
                 <p>Ingredients: {product.ingredients.join(", ")}</p>
                 <button onClick={() => handleEditProduct(product)}>Edit</button>
+                <button onClick={() => handleDeleteProduct(product.id)}>
+                  Delete
+                </button>{" "}
+                {/* Delete Button */}
               </li>
             );
           })
