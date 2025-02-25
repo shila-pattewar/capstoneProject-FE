@@ -33,22 +33,29 @@ export default function ProductDetails() {
         return <p>Loading...</p>; // Display loading text if the product is not found
     }
 
+    // Check if the product has an image and fallback if necessary
+    const productImage = product.image ? product.image.photoURI : 'default-image-url.jpg'; // Use a default image if the product doesn't have an image
+
     return (
         <div>
             <h1>Product Details</h1>
             <h2>{product.name}</h2>
-            <img src={product.image.photoURI}style={{ width: '200px', height: '200px' }} />
-            <p>Price:${product.price}</p>
-            <h3>Ingredients{product.Ingredients}</h3>
-            <ul>
-                {product.ingredients ? (
-                    product.ingredients.map((ingredient, index) => (
+            <img
+                src={productImage} // Set the image source (falling back to a default image if necessary)
+                alt={product.name}
+                style={{ width: '200px', height: '200px' }}
+            />
+            <p>Price: ${product.price}</p>
+            <h3>Ingredients:</h3>
+            {product.ingredients && product.ingredients.length > 0 ? (
+                <ul>
+                    {product.ingredients.map((ingredient, index) => (
                         <li key={index}>{ingredient}</li>
-                    ))
-                ) : (
-                    <p>No ingredients available.</p>
-                )}
-            </ul>
+                    ))}
+                </ul>
+            ) : (
+                <p>No ingredients available.</p>
+            )}
             <button onClick={handleAddToCart}>Add to Cart</button>
             <button onClick={handleGoBack}>Back to Products</button>
         </div>
