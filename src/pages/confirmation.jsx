@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default function Confirmation(){
+export default function OrderConfirmed() {
     return (
         <div>
-            <h1>Confirmation</h1>
+            <h1>ORDER CONFIRMED</h1>
+            <p>Your order has been successfully placed. Thank you for shopping with us!</p>
         </div>
     );
 }
