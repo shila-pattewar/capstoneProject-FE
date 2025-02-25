@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function ProductForm({ onSubmit }) {
+export default function ProductForm({ onSubmit, productToEdit, isEditing }) {
   const [productData, setProductData] = useState({
     name: "",
     price: "",
-    ingredients: [],
+    ingredients: "",
   });
+
+  // Pre-populate the form if editing an existing product
+  useEffect(() => {
+    if (isEditing && productToEdit) {
+      setProductData({
+        name: productToEdit.name,
+        price: productToEdit.price,
+        ingredients: productToEdit.ingredients.join(", "),
+      });
+    }
+  }, [isEditing, productToEdit]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "ingredients") {
       setProductData((prevState) => ({
         ...prevState,
-        ingredients: value.split(",").map((ingredient) => ingredient.trim()), // Splitting ingredients by comma
+        ingredients: value,
       }));
     } else {
       setProductData((prevState) => ({
@@ -28,7 +39,7 @@ export default function ProductForm({ onSubmit }) {
     setProductData({
       name: "",
       price: "",
-      ingredients: [],
+      ingredients: "",
     });
   };
 
@@ -57,11 +68,13 @@ export default function ProductForm({ onSubmit }) {
         <input
           type="text"
           name="ingredients"
-          value={productData.ingredients.join(", ")}
+          value={productData.ingredients}
           onChange={handleChange}
         />
       </div>
-      <button type="submit">Add Product</button>
+      <button type="submit">
+        {isEditing ? "Update Product" : "Add Product"}
+      </button>
     </form>
   );
 }
