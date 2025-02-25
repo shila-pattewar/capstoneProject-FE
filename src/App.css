@@ -16,6 +16,13 @@
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
+nav{
+  background-color: transparent;
+  border: solid 1px pink;
+  padding: 20px;
+  width: 100%;
+}
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
