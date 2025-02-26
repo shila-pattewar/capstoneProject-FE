@@ -46,6 +46,10 @@ It uses MongoDB for data storage and mongoose for data modeling.
 - Username - bakes4u
 - password - shila
 
+* Admin Features (For Bakery Owners)
+  - Order Management: If the website allows bakery owners or staff to log in as well, they can use the login page to manage orders, update product offerings, and track sales.
+  - Content Management: Admins can access the backend to update product listings, add seasonal promotions, and adjust inventory in real-time.
+
 ## Environment Variables
 * MONGODB_URI= (The connection string for your MongoDB instance.)
 * CLOUDINARY_API_KEY: Your Cloudinary API key
