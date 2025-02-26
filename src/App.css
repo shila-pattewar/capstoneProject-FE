@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+
+span {
+  font-size: 18px;
+  color: #ca6274;
+  font-weight: bold;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
