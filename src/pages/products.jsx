@@ -35,7 +35,7 @@ export default function Products() {
 
   return (
     <div className="product-bg">
-      <h1>All Products</h1>
+      <h1>Bakes4u Products</h1>
       <ul className="photo-gallery">
         {products.length > 0 ? (
           products.map((product, index) => {

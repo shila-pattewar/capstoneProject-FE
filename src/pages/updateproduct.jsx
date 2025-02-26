@@ -14,13 +14,13 @@ export default function UpdateProducts() {
       try {
         let res = await axios.get("http://localhost:3000/products");
         console.log("Fetched products:", res.data); // Log to check products
-
+  
         // If the backend returns _id, map it to id for consistency
         const productsWithId = res.data.map((product) => ({
           ...product,
-          id: product._id, // Map _id to id for consistency
+          id: product._id, // Map _id to id for consistency everywhere
         }));
-
+  
         setProducts(productsWithId);
         setLoading(false);
       } catch (error) {
@@ -71,7 +71,6 @@ export default function UpdateProducts() {
       // Reset editing state
       setIsEditing(false);
       setProductToEdit(null);
-      window.location.reload(); // Refresh the page to reflect the changes
     } catch (error) {
       console.error("Error updating product:", error);
     }
@@ -100,9 +99,9 @@ export default function UpdateProducts() {
       console.log("Deleted product response:", response.data);
 
       // Remove the deleted product from the products state
-      const updatedProducts = products.filter((product) => product.id !== productId);
+      const updatedProducts = products.filter((product) => product._id !== productId);
       setProducts(updatedProducts);
-      window.location.reload(); // Refresh the page to reflect the changes
+      console.log(updatedProducts);
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -128,7 +127,7 @@ export default function UpdateProducts() {
                 <p>Price: ${product.price}</p>
                 <p>Ingredients: {product.ingredients.join(", ")}</p>
                 <button onClick={() => handleEditProduct(product)}>Edit</button>
-                <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
+                <button onClick={() => handleDeleteProduct(product._id)}>Delete</button>
               </li>
             );
           })

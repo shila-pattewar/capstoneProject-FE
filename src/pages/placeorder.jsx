@@ -45,7 +45,7 @@ export default function PlaceOrder() {
   };
 
   return (
-    <div>
+    <div className="placeorder-form">
       <h1>Place Your Order</h1>
       {cart.length > 0 ? (
         <>
@@ -81,7 +81,7 @@ export default function PlaceOrder() {
           </form>
 
           <p>
-            <strong>Cash on Delivery</strong>
+            <span className="red-text">*Cash on Delivery</span>
           </p>
         </>
       ) : (

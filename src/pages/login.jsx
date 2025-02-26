@@ -17,7 +17,7 @@ export default function LoginPage() {
 
   return (
     <div className="login-form">
-      <h2>Login Page</h2>
+      <h2>Bakes4u Login</h2>
       <form onSubmit={handleSubmit}>
         <label>Username: </label>
         <input
