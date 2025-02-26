@@ -71,6 +71,7 @@ export default function UpdateProducts() {
       // Reset editing state
       setIsEditing(false);
       setProductToEdit(null);
+      window.location.reload(); // Refresh the page to reflect the changes
     } catch (error) {
       console.error("Error updating product:", error);
     }
@@ -99,10 +100,9 @@ export default function UpdateProducts() {
       console.log("Deleted product response:", response.data);
 
       // Remove the deleted product from the products state
-      const updatedProducts = products.filter(
-        (product) => product.id !== productId
-      );
+      const updatedProducts = products.filter((product) => product.id !== productId);
       setProducts(updatedProducts);
+      window.location.reload(); // Refresh the page to reflect the changes
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -115,11 +115,7 @@ export default function UpdateProducts() {
   return (
     <div>
       <h1>Update Products</h1>
-      <ProductForm
-        onSubmit={isEditing ? handleUpdateProduct : handleCreateProduct}
-        productToEdit={productToEdit}
-        isEditing={isEditing}
-      />
+      <ProductForm onSubmit={isEditing ? handleUpdateProduct : handleCreateProduct} productToEdit={productToEdit}isEditing={isEditing}/>
 
       <h2>Current Products</h2>
       <ul>
@@ -132,10 +128,7 @@ export default function UpdateProducts() {
                 <p>Price: ${product.price}</p>
                 <p>Ingredients: {product.ingredients.join(", ")}</p>
                 <button onClick={() => handleEditProduct(product)}>Edit</button>
-                <button onClick={() => handleDeleteProduct(product.id)}>
-                  {" "}
-                  Delete
-                </button>
+                <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
               </li>
             );
           })

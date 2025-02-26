@@ -16,7 +16,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
+    <div className="login-form">
       <h2>Login Page</h2>
       <form onSubmit={handleSubmit}>
         <label>Username: </label>

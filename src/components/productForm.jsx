@@ -44,7 +44,7 @@ export default function ProductForm({ onSubmit, productToEdit, isEditing }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="updateproducts-form">
       <div>
         <label>Name:</label>
         <input

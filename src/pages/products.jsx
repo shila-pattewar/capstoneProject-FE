@@ -34,7 +34,7 @@ export default function Products() {
   };
 
   return (
-    <div>
+    <div className="product-bg">
       <h1>All Products</h1>
       <ul className="photo-gallery">
         {products.length > 0 ? (

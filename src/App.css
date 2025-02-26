@@ -16,10 +16,18 @@
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-nav{
-  background-color: transparent;
+nav {
+  background-color: #f9f9f9;
   border: solid 1px pink;
-  padding: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.product-bg {
+  background-color: #f9f9f9;
+  border: solid 1px pink;
+  padding: 10px;
   width: 100%;
 }
 
@@ -34,11 +42,29 @@ nav{
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 5px;
 }
 
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.cart-form,
+.login-form {
+  background-color: #f9f9f9;
+  border: solid 1px pink;
+  padding: 50px;
+  width: 300px;
+  border-radius: 20px;
+}
+
+.updateproducts-form {
+  background-color: #f9f9f9;
+  border: solid 1px pink;
+  padding: 50px;
+  width: 300px;
+  border-radius: 20px;
+  margin-left: 35%;
 }
 
 @keyframes logo-spin {
