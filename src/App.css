@@ -65,6 +65,14 @@ nav {
   border-radius: 10px;
 }
 
+.productdetails img {
+  border: solid 1px pink;
+  padding: 5px;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
 .photo-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -76,6 +84,8 @@ nav {
 .photo-gallery img {
   width: 200px;
   height: 200px;
+  padding: 5px;
+  border: solid 1px pink;
   object-fit: cover;
   border-radius: 10px;
 }
