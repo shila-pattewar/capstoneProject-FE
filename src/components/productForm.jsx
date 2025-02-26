@@ -55,7 +55,7 @@ export default function ProductForm({ onSubmit, productToEdit, isEditing }) {
         />
       </div>
       <div>
-        <label>Price:</label>
+        <label>Price: </label>
         <input
           type="number"
           name="price"
@@ -64,7 +64,7 @@ export default function ProductForm({ onSubmit, productToEdit, isEditing }) {
         />
       </div>
       <div>
-        <label>Ingredients (comma separated):</label>
+        <label>Ingredients: </label>
         <input
           type="text"
           name="ingredients"

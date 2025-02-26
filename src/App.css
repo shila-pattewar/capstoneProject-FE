@@ -23,6 +23,20 @@ nav{
   width: 100%;
 }
 
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.photo-gallery img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }

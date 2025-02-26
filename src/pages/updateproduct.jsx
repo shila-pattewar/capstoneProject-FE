@@ -8,6 +8,7 @@ export default function UpdateProducts() {
   const [isEditing, setIsEditing] = useState(false);
   const [productToEdit, setProductToEdit] = useState(null);
 
+  // GET request to display all the products
   useEffect(() => {
     async function fetchProducts() {
       try {
@@ -34,13 +35,11 @@ export default function UpdateProducts() {
   const handleCreateProduct = async (productData) => {
     console.log("Submitting product data:", productData);
     try {
-      const response = await axios.post(
+      const { data } = await axios.post(
         "http://localhost:3000/products",
-        productData,
-        { headers: { "Content-Type": "application/json" } }
+        productData
       );
-      console.log("Created product response:", response.data);
-      setProducts([...products, response.data]);
+      setProducts((prevProducts) => [...prevProducts, data]);
     } catch (error) {
       console.error("Error creating product:", error);
     }
@@ -134,9 +133,9 @@ export default function UpdateProducts() {
                 <p>Ingredients: {product.ingredients.join(", ")}</p>
                 <button onClick={() => handleEditProduct(product)}>Edit</button>
                 <button onClick={() => handleDeleteProduct(product.id)}>
+                  {" "}
                   Delete
-                </button>{" "}
-                {/* Delete Button */}
+                </button>
               </li>
             );
           })
