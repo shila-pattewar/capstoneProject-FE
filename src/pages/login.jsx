@@ -7,7 +7,7 @@ export default function LoginPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (username === "capstone" && password === "project") {
+    if (username === "bakes4u" && password === "shila") {
       // Login successful, redirect to photographer page
       window.location.href = "/updateproduct";
     } else {

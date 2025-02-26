@@ -2,7 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-    
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -13,25 +13,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body{
-  background-image: url(https://previews.123rf.com/images/elvie15veronika/elvie15veronika1709/elvie15veronika170900104/86940724-watercolor-illustration-background-cream-can-be-used-in-your-confectionery-business-for-a-bakery.jpg);
+body {
+  /* background-image: url(https://previews.123rf.com/images/elvie15veronika/elvie15veronika1709/elvie15veronika170900104/86940724-watercolor-illustration-background-cream-can-be-used-in-your-confectionery-business-for-a-bakery.jpg); */
+  background-image: url(https://img.freepik.com/free-photo/frame-food-ingredients-baking-gently-pink-pastel-background-cooking-flat-lay-with-copy-space-top-view-baking-concept-flat-lay_127032-2200.jpg?t=st=1740591474~exp=1740595074~hmac=93d931f74864a830f7aa696e08488f02485a896f0b73bf9febe592d8faa823d5&w=1380);
   background-size: cover;
-} 
+}
 
-ul li{
+ul li {
   border: solid 1px pink;
+  opacity: 0.9;
   background-color: #f9f9f9;
   margin: 10px;
-  list-style-type: none
+  list-style-type: none;
+  border-radius: 10px;
 }
 
 h3 {
   color: rgb(232, 124, 142);
 }
 
-h1, h2{
-  color:#3d3b3b;
+h1,
+h2 {
+  color: #3d3b3b;
 }
+
 a {
   font-weight: 500;
   color: rgb(232, 124, 142);
@@ -89,6 +94,6 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
     border-color: pink;
-    margin: 5px 5px 10px 5px ;
+    margin: 5px 5px 10px 5px;
   }
 }

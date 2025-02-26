@@ -11,6 +11,7 @@ import UpdateProduct from "./pages/updateproduct";
 import Confirmation from "./pages/Confirmation";
 import PlaceOrder from "./pages/PlaceOrder";
 import ProductDetails from "./pages/productDetails";
+import Footer from "./components/Footer";
 
 function App() {
   const [products, setProducts] = useState(0);
@@ -33,6 +34,7 @@ function App() {
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
+      <Footer/>
     </>
   );
 }

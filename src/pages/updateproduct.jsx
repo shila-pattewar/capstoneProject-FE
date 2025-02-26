@@ -115,8 +115,7 @@ export default function UpdateProducts() {
     <div>
       <h1>Update Products</h1>
       <ProductForm onSubmit={isEditing ? handleUpdateProduct : handleCreateProduct} productToEdit={productToEdit}isEditing={isEditing}/>
-
-      <h2>Current Products</h2>
+      
       <ul>
         {products.length > 0 ? (
           products.map((product, index) => {

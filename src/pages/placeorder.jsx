@@ -46,7 +46,7 @@ export default function PlaceOrder() {
 
   return (
     <div className="placeorder-form">
-      <h1>Place Your Order</h1>
+      <h1>Place Order</h1>
       {cart.length > 0 ? (
         <>
           <h3>Your Cart Items:</h3>

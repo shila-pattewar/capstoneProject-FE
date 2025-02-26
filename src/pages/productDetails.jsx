@@ -38,7 +38,7 @@ export default function ProductDetails() {
     const productImage = product.image ? product.image.photoURI : 'default-image-url.jpg'; // Use a default image if the product doesn't have an image
 
     return (
-        <div>
+        <div className='productdetails'>
             <h1>Product Details</h1>
             <div>
                 <h2>{product.name}</h2>

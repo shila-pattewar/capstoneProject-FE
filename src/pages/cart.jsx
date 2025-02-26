@@ -38,7 +38,7 @@ export default function Cart() {
   };
 
   return (
-    <div>
+    <div className="cart-form">
       <h1>Your Cart</h1>
       {cart.length > 0 ? (
         <>

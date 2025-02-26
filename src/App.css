@@ -13,22 +13,56 @@
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em pink);
+}
+
+.home-bg {
+  background-color: #f9f9f9;
+  opacity: 0.9;
+  border: solid 1px pink;
+  padding: 10px;
+  width: 95%;
+  border-radius: 10px;
 }
 
 nav {
   background-color: #f9f9f9;
+  opacity: 0.9;
   border: solid 1px pink;
   padding: 10px;
   margin-bottom: 10px;
-  width: 100%;
+  width: 95%;
+  border-radius: 10px;
+}
+
+.footer {
+  background-color: #f9f9f9;
+  opacity: 0.9;
+  border: solid 1px pink;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 95%;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 .product-bg {
   background-color: #f9f9f9;
+  opacity: 0.9;
   border: solid 1px pink;
   padding: 10px;
-  width: 100%;
+  width: 95%;
+  border-radius: 10px;
+}
+
+.productdetails {
+  background-color: #f9f9f9;
+  opacity: 0.9;
+  border: solid 1px pink;
+  padding: 10px;
+  width: 95%;
+  border-radius: 10px;
 }
 
 .photo-gallery {
@@ -36,13 +70,14 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
+  border-radius: 10px;
 }
 
 .photo-gallery img {
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .logo.react:hover {
@@ -53,19 +88,21 @@ nav {
 .login-form,
 .placeorder-form {
   background-color: #f9f9f9;
+  opacity: 0.9;
   border: solid 1px pink;
   padding: 50px;
   width: 300px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .updateproducts-form {
   background-color: #f9f9f9;
+  opacity: 0.9;
   border: solid 1px pink;
   padding: 50px;
   width: 300px;
-  border-radius: 20px;
   margin-left: 35%;
+  border-radius: 10px;
 }
 
 .red-text {
