@@ -34,6 +34,13 @@ export default function UpdateProducts() {
   // POST request to create a new product
   const handleCreateProduct = async (productData) => {
     console.log("Submitting product data:", productData);
+
+    // Check if any field is empty
+    if (!productData.name || !productData.price || !productData.ingredients || productData.ingredients.length === 0) {
+      alert("Please fill in all fields and provide at least one ingredient.");
+      return; // Stop the submission if validation fails
+    }
+
     try {
       const { data } = await axios.post(
         "http://localhost:3000/products",
@@ -50,6 +57,12 @@ export default function UpdateProducts() {
     if (!productToEdit || !productToEdit.id) {
       console.error("Product to edit is missing or does not have an id.");
       return; // Don't proceed if there's no valid product or id
+    }
+
+    // Check if any field is empty
+    if (!productData.name || !productData.price || !productData.ingredients || productData.ingredients.length === 0) {
+      alert("Please fill in all fields and provide at least one ingredient.");
+      return; // Stop the submission if validation fails
     }
 
     console.log("Updating product with ID:", productToEdit.id); // Log the id
@@ -114,7 +127,11 @@ export default function UpdateProducts() {
   return (
     <div>
       <h1>Update Products</h1>
-      <ProductForm onSubmit={isEditing ? handleUpdateProduct : handleCreateProduct} productToEdit={productToEdit}isEditing={isEditing}/>
+      <ProductForm 
+        onSubmit={isEditing ? handleUpdateProduct : handleCreateProduct} 
+        productToEdit={productToEdit} 
+        isEditing={isEditing}
+      />
       
       <ul>
         {products.length > 0 ? (
