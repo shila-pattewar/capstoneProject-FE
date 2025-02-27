@@ -15,6 +15,7 @@ export default function UpdateProducts() {
         let res = await axios.get("http://localhost:3000/products");
         console.log("Fetched products:", res.data); // Log to check products
   
+        // If the backend returns _id, map it to id for consistency
         const productsWithId = res.data.map((product) => ({
           ...product,
           id: product._id, // Map _id to id for consistency everywhere
@@ -30,25 +31,9 @@ export default function UpdateProducts() {
     fetchProducts();
   }, []);
 
-  const validateProduct = (productData) => {
-    if (!productData.name || !productData.price || !productData.ingredients || productData.ingredients.length === 0) {
-      alert("All fields are required. Please make sure all fields are filled out.");
-      return false;
-    }
-    if (isNaN(productData.price) || parseFloat(productData.price) <= 0) {
-      alert("Price must be a positive number.");
-      return false;
-    }
-    return true;
-  };
-
+  // POST request to create a new product
   const handleCreateProduct = async (productData) => {
     console.log("Submitting product data:", productData);
-    
-    if (!validateProduct(productData)) {
-      return;
-    }
-
     try {
       const { data } = await axios.post(
         "http://localhost:3000/products",
@@ -60,14 +45,11 @@ export default function UpdateProducts() {
     }
   };
 
+  // PUT request to update an existing product
   const handleUpdateProduct = async (productData) => {
     if (!productToEdit || !productToEdit.id) {
       console.error("Product to edit is missing or does not have an id.");
-      return;
-    }
-
-    if (!validateProduct(productData)) {
-      return;
+      return; // Don't proceed if there's no valid product or id
     }
 
     console.log("Updating product with ID:", productToEdit.id); // Log the id
@@ -80,11 +62,13 @@ export default function UpdateProducts() {
       );
       console.log("Updated product response:", response.data);
 
+      // Update the product list with the updated product
       const updatedProducts = products.map((product) =>
         product.id === productToEdit.id ? response.data : product
       );
       setProducts(updatedProducts);
 
+      // Reset editing state
       setIsEditing(false);
       setProductToEdit(null);
     } catch (error) {
@@ -92,24 +76,29 @@ export default function UpdateProducts() {
     }
   };
 
+  // Handle Edit Button Click
   const handleEditProduct = (product) => {
+    // Ensure product has a valid id (either _id or id)
     if (!product._id && !product.id) {
       console.error("Product does not have a valid id");
       return;
     }
 
-    console.log("Editing product:", product);
+    console.log("Editing product:", product); // Log product being edited
     setIsEditing(true);
-    setProductToEdit({ ...product, id: product._id || product.id });
+    setProductToEdit({ ...product, id: product._id || product.id }); // Ensure `id` is correctly set
   };
 
+  // DELETE request to delete a product
   const handleDeleteProduct = async (productId) => {
     try {
+      // Make the DELETE request to remove the product by ID
       const response = await axios.delete(
         `http://localhost:3000/products/${productId}`
       );
       console.log("Deleted product response:", response.data);
 
+      // Remove the deleted product from the products state
       const updatedProducts = products.filter((product) => product._id !== productId);
       setProducts(updatedProducts);
       console.log(updatedProducts);
@@ -125,11 +114,7 @@ export default function UpdateProducts() {
   return (
     <div>
       <h1>Update Products</h1>
-      <ProductForm 
-        onSubmit={isEditing ? handleUpdateProduct : handleCreateProduct} 
-        productToEdit={productToEdit} 
-        isEditing={isEditing}
-      />
+      <ProductForm onSubmit={isEditing ? handleUpdateProduct : handleCreateProduct} productToEdit={productToEdit}isEditing={isEditing}/>
       
       <ul>
         {products.length > 0 ? (
