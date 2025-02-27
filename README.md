@@ -6,7 +6,7 @@
 * With easy navigation and appealing visuals, customers can enjoy browsing our delicious offerings.
 
 ## Description
-Bakes4u website is a cozy, user-friendly online platform designed to showcase a wide variety of freshly baked goods, from decadent cakes and pastries to delightful cookies and bread. 
+Bakes4u website is a cozy, user-friendly online platform designed to showcase a wide variety of freshly baked goods, from decadent(rich) cakes and pastries to delightful cookies and bread. 
 It provides a seamless shopping experience where customers can easily browse through our delicious offerings, learn about the ingredients and flavors, and place orders for delivery or pickup.
 
 ## Table of Contents
@@ -81,6 +81,8 @@ Implement a secure payment system, allowing customers to complete their orders w
 -User Authentication & Account Management
 Add authentication features where users can create accounts, log in, and manage their profiles. This will allow customers to track their order history, save favorite items, and speed up the checkout process in the future.
 
+-Search Functionality
+
 ## Deployed Link
 ## The repository Link:
    ### FrontEnd - https://github.com/shila-pattewar/capstoneProject-FE
@@ -93,5 +95,5 @@ Thank you for visiting Bakes4U, and I hope you enjoy exploring the sweet offerin
 
 ## Special Mention: Supporters of the build
 * GeeksforGeeks, MDN Web Docs, Stack Overflow...
-* Classmates - Supriya , Shobhana and Danielle.
-* Special Thanks to Bryan Santos.
+* Peer - Supriya , Shobhana and Danielle.
+* Bryan Santos for his invaluable guidance and support.
